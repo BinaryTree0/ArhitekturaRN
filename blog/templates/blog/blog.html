@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Header section
+================================================== -->
+<section id="header" class="header-five">
+	<div class="event__search__floater">
+		<div class="search__anchor">
+		  <form id="event-search-form">
+		    <input id="Search" type="text" class="search__bar" onkeyup="myFunction()" placeholder="Search Event">
+		    <div class="search__toggler"></div>
+		  </form>
+
+		  </div>
+	</div>
+	<div class="container">
+		<div class="row">
+
+			<div class="wow fadeIn col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8" data-wow-delay="0.6s">
+          <div class="header-thumb">
+              <h1>Our Blog</h1>
+              <h3>Lastest News and Articles</h3>
+							{% if user.is_superuser %}
+							<a href="{% url 'blog:create' %}" class="btn btn-default create-blog">Create Blog</a>
+							{% endif %}          </div>
+			</div>
+
+		</div>
+	</div>
+</section>
+<!-- Blog section
+================================================== -->
+<section id="blog">
+   <div class="container">
+			<div class="row">
+				{% for obj in object_list %}
+				<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.9s" id="blog_{{obj.id}}">
+						 <div class="blog-thumb">
+								<a href="single-post.html"><img src="{{ obj.image.url }}" class="img-responsive" alt="Blog"></a>
+								<a class="blog-name" href="single-post.html" value="{{obj.id}}"><h1>{{obj.name|title}}</h1></a>
+									 <div class="post-format">
+									 <span>By <a href="#">Nikola Radović</a></span>
+									 <span><i class="fa fa-date"></i> 3 June 2016, Friday</span>
+								</div>
+									<p>{{ obj.text|truncatechars:200 }}</p>
+									<a href="{{ obj.get_absolute_url }}" class="btn btn-default">Details</a>
+						 </div>
+			 </div>
+			{% endfor %}
+			</div>
+
+			<div class="row">
+        <div class="wow fadeInUp col-md-12 col-sm-12" data-wow-delay="0.3s">
+          <h1>Interdum et malesuada fames</h1>
+          <p>Sed quis laoreet purus, a luctus ligula. Suspendisse nec urna a dolor sodales venenatis. Donec et sem quam. Fusce faucibus neque sit amet arcu auctor tincidunt. Etiam feugiat nibh orci, quis sagittis velit pretium ac. Suspendisse egestas ex a dolor dictum gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis urna id odio consequat fringilla.</p>
+          <p>Integer eu rhoncus libero. Nulla dignissim laoreet eros quis interdum. Proin ut placerat dui, eget vehicula ipsum. Mauris id molestie eros. Vestibulum fringilla dui nunc, vitae euismod ligula consectetur eget. Sed accumsan, ipsum in scelerisque euismod, nisi quam placerat urna, ac porttitor augue sapien varius velit.</p>
+       </div>
+   </div>
+</section>
+{% endblock %}

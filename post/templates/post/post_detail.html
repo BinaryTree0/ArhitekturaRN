@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<!-- Single Project section
+================================================== -->
+<section id="single-project">
+   <div class="container">
+      <div class="row">
+         <div class="wow fadeInUp col-md-offset-1 col-md-3 col-sm-offset-1 col-sm-4" data-wow-delay="2.3s">
+      			<div class="project-info">
+      				<h4>Client</h4>
+      				<p>Ananda Co.</p>
+      			</div>
+      			<div class="project-info">
+      				<h4>Date</h4>
+      				<p>{{ object.date }}</p>
+      			</div>
+      			<div class="project-info">
+      				<h4>Category</h4>
+      				<p>{{ object.category }}</p>
+      			</div>
+      		</div>
+      		<div class="wow fadeInUp col-md-7 col-sm-7" data-wow-delay="2.6s">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                {% for image in object.images %}
+                {% if forloop.first %}
+                    <li data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
+                {% else %}
+                    <li data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}"></li>
+                {% endif %}
+                {% endfor %}
+              </ol>
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                {% for image in object.images %}
+                {% if forloop.first %}
+                    <div class="item active">
+                {% else %}
+                    <div class="item">
+                {% endif %}
+                  <img data-enlargable src="{{ image.url }}" style="width:96%!important;">
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+      			<br>
+      			<br>
+      			<p>Ut urna turpis, tempor sit amet massa vitae, pulvinar porttitor magna. Pellentesque dolor lorem, blandit ac congue non, mattis a mi. Vestibulum id accumsan neque. Aenean turpis dui, consectetur in ornare quis, sollicitudin vel mauris. Aliquam eros elit, blandit et tortor non, ornare tincidunt ante.</p>
+      		</div>
+          {% if user.is_superuser %}
+          <div class="project-info">
+            <h4><a href="{% url 'post:update' pk=object.id %}">Update</a></h4>
+            <h4><a href="{% url 'post:delete' pk=object.id %}">Delete</a></h4>
+          </div>
+          {% endif %}
+
+      </div>
+   </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Portfolio section
+================================================== -->
+<section id="portfolio">
+   <div class="container">
+      <div class="row">
+
+         <div class="col-md-12 col-sm-12">
+
+               <!-- iso section -->
+               <div class="iso-section wow fadeInUp" data-wow-delay="2.6s">
+
+                  <ul class="filter-wrapper clearfix">
+                           <li><a href="#" data-filter="*" class="selected opc-main-bg">All</a></li>
+                           <li><a href="#" class="opc-main-bg" data-filter=".portfolio_1">House</a></li>
+                           <li><a href="#" class="opc-main-bg" data-filter=".portfolio_2">Building</a></li>
+                           <li><a href="#" class="opc-main-bg" data-filter=".portfolio_3">Hotel</a></li>
+                        <li><a href="#" class="opc-main-bg" data-filter=".portfolio_4">Restourant</a></li>
+                        </ul>
+
+                        <!-- iso box section -->
+                        <div class="iso-box-section wow fadeInUp" data-wow-delay="1s">
+                           <div class="iso-box-wrapper col4-iso-box">
+                             {% if user.is_superuser %}
+                             <div class="iso-box branding col-md-4 col-sm-6">
+                                <div class="portfolio-thumb">
+                                   <img src="{% static 'images/portfolio-img2.jpg' %}" class="img-responsive img-full" alt="Portfolio">
+                                      <div class="portfolio-overlay portfolio-overlay-permanent">
+                                         <div class="portfolio-item">
+                                               <a href="{% url 'post:create' %}"><i class="fa fa-plus fa-3x"></i></a>
+                                               <h2>Create</h2>
+                                            </div>
+                                      </div>
+                                </div>
+                             </div>
+                             {% endif %}
+                             {% for obj in object_list %}
+                               <div class="iso-box portfolio_{{ obj.category }} branding col-md-4 col-sm-6">
+                                  <div class="portfolio-thumb">
+                                     <img src="{{ obj.image.url }}" class="img-responsive" alt="Portfolio">
+                                        <div class="portfolio-overlay">
+                                           <div class="portfolio-item">
+                                                 <a href="{{ obj.get_absolute_url }}"><i class="fa fa-link"></i></a>
+                                                 <h2>{{ obj.name }} {{ obj.category }}</h2>
+                                              </div>
+                                        </div>
+                                  </div>
+                               </div>
+                             {% endfor %}
+                        </div>
+               </div>
+         </div>
+
+      </div>
+   </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="height:70vh;">
+  <div class="deletion">
+    <form method="post">
+      {% csrf_token %}
+      <h1>Are you sure you want to delete "{{ object }}"?</h1>
+      <input type="submit" value="Confirm" class="btn-warning" style="font-size : 2vh;font-weight: bold;">
+    </form>
+  </div>
+</div>
+{% endblock %}

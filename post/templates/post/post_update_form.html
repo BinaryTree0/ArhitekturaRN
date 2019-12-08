@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<!-- Contact section
+================================================== -->
+<section id="contact">
+   <div class="container" style="margin-bottom:15vh;">
+      <div class="row">
+    		<div class="wow fadeInUp col-md-6 col-sm-12" data-wow-delay="1.6s">
+    			<h1>Let's work together!</h1>
+    			<div class="contact-form">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                {{ image_form.as_p }}
+                <input type="submit" class="form-control" value="Save">
+            </form>
+    			</div>
+    		</div>
+      </div>
+   </div>
+</section>
+
+{% endblock %}
