@@ -4,10 +4,11 @@
 {% block content %}
 <div id="fh5co-main">
     <div class="fh5co-narrow-content">
-        <div class="row col-md-6 col-md-offset-2">
+        <div class="row col-md-6 col-md-offset-2 bp">
             <h1>Post form</h1>
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %} {{ form.as_p }}
+                {{ image_form.as_p }}
                 <input name="submit" type="submit" class="form-control" id="submit" value="Submit a article">
             </form>
         </div>

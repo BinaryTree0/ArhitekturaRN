@@ -1,13 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div style="height:70vh;">
-  <div class="deletion">
-    <form method="post">
-      {% csrf_token %}
-      <h1>Are you sure you want to delete "{{ object }}"?</h1>
-      <input type="submit" value="Confirm" class="btn-warning" style="font-size : 2vh;font-weight: bold;">
-    </form>
-  </div>
+<div id="fh5co-main">
+    <div class="fh5co-narrow-content">
+        <div class="row col-md-4 col-md-offset-2">
+            <h1>Post delete form</h1>
+            <h4>Are you sure you want to delete?</h4>
+            <h4>{{ object.name }}</h4>
+            <h4>{{ object.description }}</h4>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %} {{ form.as_p }}
+                <input type="submit" class="btn btn-primary" value="Delete">
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock %}

@@ -1160,6 +1160,10 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   margin-top: 5vh !important;
 }
 
+.bp {
+  padding-bottom: 5vh !important;
+}
+
 @media screen and (max-width: 768px) {
   .mt-media {
     margin-top: 5vh !important;

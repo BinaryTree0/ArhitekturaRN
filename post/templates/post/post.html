@@ -19,11 +19,10 @@
       {% endfor %}
     </div>
   </div>
-
-  <div class="fh5co-narrow-content">
     {% if user.is_superuser %}
+  <div class="fh5co-narrow-content">
     <a href="{% url 'post:create' %}" class="btn btn-primary">Create Post</a>
-    {% endif %}
   </div>
+  {% endif %}
 </div>
 {% endblock %}

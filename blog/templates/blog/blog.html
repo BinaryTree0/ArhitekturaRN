@@ -2,21 +2,21 @@
 {% load static %}
 
 {% block content %}
-<div id="fh5co-main">
-  <div class="event__search__floater">
+<div class="event__search__floater">
     <div class="search__anchor">
-      <form id="event-search-form">
-        <input id="Search" type="text" class="search__bar" onkeyup="myFunction()" placeholder="Search Event">
-        <div class="search__toggler"></div>
-      </form>
+        <form id="event-search-form">
+            <input id="Search" type="text" class="search__bar" onkeyup="myFunction()" placeholder="Search Event">
+            <div class="search__toggler"></div>
+        </form>
 
-      </div>
-  </div>
+    </div>
+</div>
+<div id="fh5co-main">
     <div class="fh5co-narrow-content">
-        <h2 class="fh5co-heading animated fadeIn" data-animate-effect="fadeInLeft">Read Our Blog</h2>
+        <h2 class="fh5co-heading animated fadeIn">Read Our Blog</h2>
         <div class="row row-bottom-padded-md">
             {% for obj in object_list %}
-            <div class="col-md-4 col-sm-6 col-padding animated fadeIn blog-name" data-animate-effect="fadeInLeft" value="{{ obj.pk }}" id="blog_{{ obj.pk }}">
+            <div class="col-md-4 col-sm-6 col-padding animated fadeIn blog-name" value="{{ obj.pk }}" id="blog_{{ obj.pk }}">
                 <div class="blog-entry">
                     <a href="{{ obj.get_absolute_url }}" class="blog-img"><img src="{{ obj.image.url }}" class="img-responsive"></a>
                     <div class="desc">
