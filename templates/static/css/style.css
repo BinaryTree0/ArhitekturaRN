@@ -1268,7 +1268,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 }
 .search__bar:focus ~ .search__toggler {
   right: 400px;
-  background: #151515;
+  background: #334e87;
   z-index: 6;
   transition: all 0.2;
 }
