@@ -3,11 +3,20 @@
 
 {% block content %}
 <div id="fh5co-main">
+  <div class="event__search__floater">
+    <div class="search__anchor">
+      <form id="event-search-form">
+        <input id="Search" type="text" class="search__bar" onkeyup="myFunction()" placeholder="Search Event">
+        <div class="search__toggler"></div>
+      </form>
+
+      </div>
+  </div>
     <div class="fh5co-narrow-content">
-        <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Read Our Blog</h2>
+        <h2 class="fh5co-heading animated fadeIn" data-animate-effect="fadeInLeft">Read Our Blog</h2>
         <div class="row row-bottom-padded-md">
             {% for obj in object_list %}
-            <div class="col-md-4 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
+            <div class="col-md-4 col-sm-6 col-padding animated fadeIn" data-animate-effect="fadeInLeft">
                 <div class="blog-entry">
                     <a href="{{ obj.get_absolute_url }}" class="blog-img"><img src="{{ obj.image.url }}" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
                     <div class="desc">

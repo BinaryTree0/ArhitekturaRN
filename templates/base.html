@@ -58,11 +58,11 @@
             <h1 id="fh5co-logo"><a href="{% url 'landing:template' %}"></a>RN</h1>
             <nav id="fh5co-main-menu" role="navigation">
                 <ul>
-                    <li class="fh5co-active"><a href="{% url 'landing:template' %}">Home</a></li>
-                    <li><a href="{% url 'post:template' %}">Portfolio</a></li>
-                    <li><a href="{% url 'blog:template' %}">Blog</a></li>
-                    <li><a href="{% url 'landing:about' %}">About</a></li>
-                    <li><a href="{% url 'landing:contact' %}">Contact</a></li>
+                    <li {% if "/" == request.path %}class="fh5co-active"{% endif %}><a href="{% url 'landing:template' %}">Home</a></li>
+                    <li {% if "post" in request.path %}class="fh5co-active"{% endif %}><a href="{% url 'post:template' %}">Portfolio</a></li>
+                    <li {% if "blog" in request.path %}class="fh5co-active"{% endif %}><a href="{% url 'blog:template' %}">Blog</a></li>
+                    <li {% if "about" in request.path %}class="fh5co-active"{% endif %}><a href="{% url 'landing:about' %}">About</a></li>
+                    <li {% if "contact" in request.path %}class="fh5co-active"{% endif %}><a href="{% url 'landing:contact' %}">Contact</a></li>
                 </ul>
             </nav>
 
