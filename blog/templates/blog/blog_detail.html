@@ -21,8 +21,9 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-1 mt">
                 {% if user.is_superuser %}
-                <h4><a href="{% url 'blog:update' pk=object.id %}">Update</a></h4>
-                <h4><a href="{% url 'blog:delete' pk=object.id %}">Delete</a></h4> {% endif %}
+                <a class="btn btn-primary" href="{% url 'blog:update' pk=object.id %}">Update</a>
+                <a class="btn btn-primary" href="{% url 'blog:delete' pk=object.id %}">Delete</a>
+                {% endif %}
             </div>
         </div>
     </div>
