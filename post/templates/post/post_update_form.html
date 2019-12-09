@@ -1,26 +1,16 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-
-
-<!-- Contact section
-================================================== -->
-<section id="contact">
-   <div class="container" style="margin-bottom:15vh;">
-      <div class="row">
-    		<div class="wow fadeInUp col-md-6 col-sm-12" data-wow-delay="1.6s">
-    			<h1>Let's work together!</h1>
-    			<div class="contact-form">
+<div id="fh5co-main">
+    <div class="fh5co-narrow-content">
+        <div class="row col-md-6 col-md-offset-2">
+            <h1>Blog form</h1>
             <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-                {{ image_form.as_p }}
-                <input type="submit" class="form-control" value="Save">
+                {% csrf_token %} {{ form.as_p }}
+                <input name="submit" type="submit" class="form-control" id="submit" value="Submit a article">
             </form>
-    			</div>
-    		</div>
-      </div>
-   </div>
-</section>
-
+        </div>
+    </div>
+</div>
 {% endblock %}

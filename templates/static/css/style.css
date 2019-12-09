@@ -524,7 +524,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   color: #e6e6e6;
 }
 .blog-entry .desc .lead {
-  font-size: 11px;
+  font-size: 1.6vh;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #000;
@@ -561,7 +561,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   display: table-cell;
   vertical-align: middle;
   height: 40vh;
-  background: #fff;
+  background: #000;
   opacity: 0;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
@@ -573,7 +573,8 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   }
 }
 .work .desc h3 {
-  font-size: 2vh;
+  font-size: 2.4vh;
+  color: #fff;
   -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
   transition: transform 0.3s, opacity 0.3s;
   -webkit-transform: translate3d(0, -15px, 0);
@@ -581,30 +582,15 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 }
 .work .desc span {
   display: block;
-  color: #999999;
+  color: #fff;
   font-size: 1.5vh;
   -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
   transition: transform 0.3s, opacity 0.3s;
   -webkit-transform: translate3d(0, 15px, 0);
   transform: translate3d(0, 15px, 0);
 }
-@media screen and (max-width: 768px) {
-  .work .desc {
-    opacity: 1;
-    background: transparent !important;
-  }
-  .work .desc h3 {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    color: #fff;
-  }
-  .work .desc span {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
 .work:hover .desc {
-  opacity: 1;
+  opacity: 0.85;
 }
 .work:hover .desc h3 {
   -webkit-transform: translate3d(0, 0, 0);
@@ -1172,6 +1158,12 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 
 .mt {
   margin-top: 5vh !important;
+}
+
+@media screen and (max-width: 768px) {
+  .mt-media {
+    margin-top: 5vh !important;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
