@@ -1,80 +1,30 @@
 {% extends "base.html" %}
 {% load static %}
 {% load nbsp %}
+
 {% block content %}
-
-
-
-<!-- Single Post section
-================================================== -->
-<section id="single-post">
-   <div class="container">
-      <div class="row">
-
-         <div class="wow fadeInUp col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10" data-wow-delay="0.3s">
-         	  <div class="blog-thumb">
-         		   <h1>{{ object.name }}</h1>
-               <img src="{{ object.image.url}}" class="img-responsive post-image" alt="Blog">
-               <div class="post-format">
-                 <span>By <a href="#">Nikola Radović</a></span>
-                 <span><i class="fa fa-date"></i>{{ object.date }}</span>
-              </div>
-               <br>
-               <br>
-               {% autoescape off %}
-               <p>{{ object.text|linebreaksbr|nbsp }}</p>
-               {% endautoescape %}
-
-               <div class="blog-comment-form">
-               	 <p id="comment-form-header" class="text-center">Leave a comment</p>
-                 <h3 id="reply-text"></h3>
-                   <form method="post" id="comments-section">
-                       {% csrf_token %}
-                       {{ form.as_p }}
-                       <div class="contact-submit">
-                         <input name="submit" type="submit" class="form-control" id="submit" value="Submit a comment">
-                       </div>
-                   </form>
-               </div>
-               <div class="blog-comment">
-                 <h3>Comments</h3>
-								 		{% for comment in comments %}
-                      <div class="media">
-                        <div class="media-body">
-                          <h4 class="media-heading">{{ comment.name }}</h4>
-                          <h5>{{ comment.date }}</h5>
-                          <p>{{ comment.text|linebreaksbr }}</p>
-                          <div class="text-right">
-                            <a class="toggle smooth-goto" href="#comments-section" value="{{ comment.name }}_{{ comment.pk }}" style="color:black;font-weight:400;padding-right:3.5vh;font-size:1.7vh;">Reply</a>
-                            {% if user.is_superuser %}
-                            <a class="toggle smooth-goto" href="{% url 'blog:comment_delete' pk=comment.id %}"  style="color:black;font-weight:400;padding-right:3.5vh;font-size:1.7vh;">Delete</a>
-                            {% endif %}
-                          </div>
-                        </div>
-                      </div>
-                      {% for reply in comment.replies %}
-                      <div class="media" style="padding-left:6vh">
-                        <div class="media-body">
-                          <h4 class="media-heading">{{ reply.name }}</h4>
-                          <h5>{{ reply.date }}</h5>
-                          <p>{{ reply.text|linebreaksbr }}</p>
-                          {% if user.is_superuser %}
-                          <div class="text-right">
-                            <a class="toggle smooth-goto" href="{% url 'blog:comment_delete' pk=reply.id %}"  style="color:black;font-weight:400;padding-right:3.5vh;font-size:1.7vh;">Delete</a>
-                          </div>
-                          {% endif %}
-                        </div>
-                      </div>
-                      {% endfor %}
-										{% endfor %}
-               </div>
-		       </div>
-           </div>
-           {% if user.is_superuser %}
-           <h4><a href="{% url 'blog:update' pk=object.id %}">Update</a></h4>
-           <h4><a href="{% url 'blog:delete' pk=object.id %}">Delete</a></h4>
-           {% endif %}
-      </div>
-   </div>
-</section>
+<div id="fh5co-main">
+    <div class="fh5co-narrow-content">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1 animate-box" data-animate-effect="fadeInLeft">
+                <img class="img-responsive" src="{% static 'images/img_bg_5.jpg' %}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+            </div>
+        </div>
+        <div class="row mt">
+            <div class="col-md-8 col-md-offset-1 animate-box" data-animate-effect="fadeInLeft">
+                <h2 class="fh5co-heading">About Company</h2>
+                {% autoescape off %}
+                <p>{{ object.text|linebreaksbr|nbsp }}</p>
+                {% endautoescape %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1 mt">
+                {% if user.is_superuser %}
+                <h4><a href="{% url 'blog:update' pk=object.id %}">Update</a></h4>
+                <h4><a href="{% url 'blog:delete' pk=object.id %}">Delete</a></h4> {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
