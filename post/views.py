@@ -5,7 +5,6 @@ from .models import Post,Images,CATEGORY_CHOICES
 from django.conf import settings
 from django.urls import reverse_lazy
 from django.http import HttpResponse
-# Create your views here.
 
 class PostView(generic.ListView):
     template_name = "post/post.html"
