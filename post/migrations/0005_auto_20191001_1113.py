@@ -24,6 +24,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='images',
             name='post',
-            field=models.ForeignKey(default=None, on_delete='CASCADE', to='post.Post'),
+            field=models.ForeignKey(default=None, on_delete=models.CASCADE, to='post.Post'),
         ),
     ]
